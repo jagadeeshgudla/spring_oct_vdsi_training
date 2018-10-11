@@ -16,10 +16,10 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
-@ComponentScan(basePackages = "com.demo.spring")
-@EnableTransactionManagement
-@EnableJpaRepositories(basePackages="com.demo.spring.repo")
+//@Configuration
+//@ComponentScan(basePackages = "com.demo.spring")
+//@EnableTransactionManagement
+//@EnableJpaRepositories(basePackages = "com.demo.spring.repo")
 public class DaoConfig {
 
 	@Bean("ds")
@@ -31,25 +31,19 @@ public class DaoConfig {
 		dmds.setPassword("root");
 		return dmds;
 	}
-	
-	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-		LocalContainerEntityManagerFactoryBean emfb= new LocalContainerEntityManagerFactoryBean();
-		emfb.setDataSource(dataSource());
-		emfb.setPackagesToScan("com.demo.spring.entity");
-		
-		HibernateJpaVendorAdapter va= new  HibernateJpaVendorAdapter();
-		va.setDatabase(Database.MYSQL);
-		va.setShowSql(true);
-		emfb.setJpaVendorAdapter(va);
-		return emfb;
-	}
-	
-	@Bean
-	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
-		JpaTransactionManager txm= new JpaTransactionManager();
-		txm.setEntityManagerFactory(emf);
-		return txm;
-	}
 
+	/*
+	 * @Bean public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+	 * LocalContainerEntityManagerFactoryBean emfb= new
+	 * LocalContainerEntityManagerFactoryBean(); emfb.setDataSource(dataSource());
+	 * emfb.setPackagesToScan("com.demo.spring.entity");
+	 * 
+	 * HibernateJpaVendorAdapter va= new HibernateJpaVendorAdapter();
+	 * va.setDatabase(Database.MYSQL); va.setShowSql(true);
+	 * emfb.setJpaVendorAdapter(va); return emfb; }
+	 * 
+	 * @Bean public JpaTransactionManager transactionManager(EntityManagerFactory
+	 * emf) { JpaTransactionManager txm= new JpaTransactionManager();
+	 * txm.setEntityManagerFactory(emf); return txm; }
+	 */
 }
