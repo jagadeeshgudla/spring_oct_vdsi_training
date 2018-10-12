@@ -14,11 +14,11 @@ public class SenderApp {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(JmsConfig.class);
-		JmsTemplate jt =(JmsTemplate) ctx.getBean("jtPubSub");
+		JmsTemplate jt =(JmsTemplate) ctx.getBean(JmsTemplate.class);
 
 		for (int i = 0; i <= 10; i++) {
 			 final int count=i;
-			jt.send("demotopic", new MessageCreator() {
+			jt.send("testqueue", new MessageCreator() {
 				
 				public Message createMessage(Session session) throws JMSException {
 					TextMessage tm = session.createTextMessage();
