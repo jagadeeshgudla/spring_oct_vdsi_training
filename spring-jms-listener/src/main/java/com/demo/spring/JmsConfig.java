@@ -32,7 +32,6 @@ public class JmsConfig {
 	public JmsListenerContainerFactory<?> factory(){
 		DefaultJmsListenerContainerFactory cf = new DefaultJmsListenerContainerFactory();
 		cf.setConnectionFactory(connectionFactory());
-		cf.setPubSubDomain(true);
 		return cf;
 	}
 	
