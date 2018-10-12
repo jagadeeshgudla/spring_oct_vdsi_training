@@ -31,7 +31,6 @@ public class JmsConfig {
 	public JmsTemplate jtPubSub() {
 		JmsTemplate jt= new JmsTemplate();
 		jt.setConnectionFactory(connectionFactory());
-		jt.setPubSubDomain(true);
 		return jt;
 	}
 }
