@@ -15,7 +15,7 @@ public class App {
 		System.out.println("EMP Details from DB for display()"+hr.displayEmpInfo(1));
 		System.out.println("All Employees:"+hr.getALlEmployees());
 		hr.removeEmployee(13);
-		Emp e= new Emp(1012,"Testing","My System",1);
+		Emp e= new Emp(1012,"Testing","My System",1); 
 		System.out.println(hr.registerEmployee(e));
  	}
 
